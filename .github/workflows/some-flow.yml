@@ -1,0 +1,22 @@
+name: another flow
+run-name: another flow
+on:
+  workflow_call
+jobs:
+  job-a:
+    name: job-a
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "job1 success"
+  job-b:
+    name: job-b
+    runs-on: ubuntu-latest
+    needs: job-a
+    steps:
+      - run: echo "job2 success"
+  job-c:
+    name: job-c
+    runs-on: ubuntu-latest
+    needs: job-b
+    steps:
+      - run: echo "job3 success"

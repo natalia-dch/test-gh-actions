@@ -1,0 +1,22 @@
+name: Somw flow
+run-name: Somw flow§
+on:
+  workflow_call
+jobs:
+  sf-job1:
+    name: sf-job1 success
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "job1 success"
+  sf-job2:
+    name: sf-job2 success
+    runs-on: ubuntu-latest
+    needs: sf-job1
+    steps:
+      - run: echo "job2 success"
+  sf-job3:
+    name: sf-job3 success
+    runs-on: ubuntu-latest
+    needs: sf-job2
+    steps:
+      - run: echo "job3 success"

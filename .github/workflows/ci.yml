@@ -21,6 +21,9 @@ jobs:
     needs: job2
     steps:
       - run: echo "job3 success"
+  call-some-workflow:
+    uses: ./.github/workflows/some-flow.yml
+    needs: job2
   job4:
     name: job4 failure
     runs-on: ubuntu-latest
